@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llmeval"
+version = "0.1.0"
+description = "A lightweight evaluation toolkit for LLM application outputs: ROUGE, BERTScore, hallucination detection, latency, and cost tracking."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Krishita Malhotra" }
+]
+keywords = ["llm", "evaluation", "rouge", "bertscore", "hallucination-detection", "nlp", "rag"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "rouge-score>=0.1.2",
+    "bert-score>=0.3.13",
+    "transformers>=4.30.0",
+    "torch>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/krishita/llmeval"
+Issues = "https://github.com/krishita/llmeval/issues"
+
+[tool.setuptools.packages.find]
+include = ["llmeval*"]
