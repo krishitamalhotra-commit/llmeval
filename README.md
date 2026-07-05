@@ -1,5 +1,9 @@
 # llmeval
 
+![tests](https://github.com/your-username/llmeval/actions/workflows/tests.yml/badge.svg)
+![python](https://img.shields.io/badge/python-3.11%2B-blue)
+![license](https://img.shields.io/badge/license-MIT-green)
+
 A lightweight, provider-agnostic evaluation toolkit for LLM application outputs.
 
 Most LLM evaluation libraries assume you're calling a hosted API and want LLM-as-judge style grading. `llmeval` is built for a different (and very common) scenario: you're running open-source models (Llama, Mistral, etc.) locally or self-hosted, and you need **fast, free, reproducible** quality metrics without making another paid API call just to evaluate your first one.
