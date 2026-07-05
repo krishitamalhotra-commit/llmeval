@@ -1,12 +1,12 @@
-# llmeval
+# llm-inspector
 
-![tests](https://github.com/your-username/llmeval/actions/workflows/tests.yml/badge.svg)
+![tests](https://github.com/your-username/llm-inspector/actions/workflows/tests.yml/badge.svg)
 ![python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
 A lightweight, provider-agnostic evaluation toolkit for LLM application outputs.
 
-Most LLM evaluation libraries assume you're calling a hosted API and want LLM-as-judge style grading. `llmeval` is built for a different (and very common) scenario: you're running open-source models (Llama, Mistral, etc.) locally or self-hosted, and you need **fast, free, reproducible** quality metrics without making another paid API call just to evaluate your first one.
+Most LLM evaluation libraries assume you're calling a hosted API and want LLM-as-judge style grading. `llm-inspector` is built for a different (and very common) scenario: you're running open-source models (Llama, Mistral, etc.) locally or self-hosted, and you need **fast, free, reproducible** quality metrics without making another paid API call just to evaluate your first one.
 
 ## Features
 
@@ -26,7 +26,7 @@ pip install -e .
 Or once published to PyPI:
 
 ```bash
-pip install llmeval
+pip install llm-inspector
 ```
 
 ### Optional dependencies
@@ -40,7 +40,7 @@ evaluator = Evaluator(enable_bertscore=False, enable_hallucination=False)
 ## Quickstart
 
 ```python
-from llmeval import Evaluator, print_report
+from llm-inspector import Evaluator, print_report
 
 evaluator = Evaluator()
 
@@ -73,7 +73,7 @@ Most hallucination checks either:
 1. Use a full LLM-as-judge call (accurate, but costs money and adds latency for every evaluation), or
 2. Use crude keyword/fact overlap (fast and free, but flags valid paraphrases as hallucinations)
 
-`llmeval` uses a small pretrained **Natural Language Inference (NLI)** model (`cross-encoder/nli-deberta-v3-base`) to check whether the generated response is *entailed by* the source context it was supposedly grounded in. This is the same family of approach used by tools like SelfCheckGPT — local, free, and fast enough to run on every single generation, at the cost of being less nuanced on long, multi-claim responses than a full LLM-as-judge pass.
+`llm-inspector` uses a small pretrained **Natural Language Inference (NLI)** model (`cross-encoder/nli-deberta-v3-base`) to check whether the generated response is *entailed by* the source context it was supposedly grounded in. This is the same family of approach used by tools like SelfCheckGPT — local, free, and fast enough to run on every single generation, at the cost of being less nuanced on long, multi-claim responses than a full LLM-as-judge pass.
 
 ## Batch evaluation and export
 
@@ -85,7 +85,7 @@ samples = [
 
 results = evaluator.evaluate_batch(samples)
 
-from llmeval import export_json, export_csv
+from llm-inspector import export_json, export_csv
 export_json(results, "results.json")
 export_csv(results, "results.csv")
 ```
@@ -114,8 +114,8 @@ Same arguments as `evaluate()`, passed as a list of dicts.
 ## Project structure
 
 ```
-llmeval/
-├── llmeval/
+llm-inspector/
+├── llm-inspector/
 │   ├── metrics/
 │   │   ├── rouge.py          # ROUGE-1/2/L
 │   │   ├── bertscore.py      # BERTScore

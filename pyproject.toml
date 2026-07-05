@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "llmeval"
+name = "llm-inspector"
 version = "0.1.0"
 description = "A lightweight evaluation toolkit for LLM application outputs: ROUGE, BERTScore, hallucination detection, latency, and cost tracking."
 readme = "README.md"
@@ -27,11 +27,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/krishita/llmeval"
-Issues = "https://github.com/krishita/llmeval/issues"
+Homepage = "https://github.com/krishita/llm-inspector"
+Issues = "https://github.com/krishita/llm-inspector/issues"
 
 [tool.setuptools.packages.find]
-include = ["llmeval*"]
+include = ["llm-inspector*"]
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0.0", "rouge-score>=0.1.2"]
