@@ -32,3 +32,6 @@ Issues = "https://github.com/krishita/llmeval/issues"
 
 [tool.setuptools.packages.find]
 include = ["llmeval*"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0", "rouge-score>=0.1.2"]
